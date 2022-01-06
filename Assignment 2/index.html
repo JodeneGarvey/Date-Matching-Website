@@ -1,0 +1,200 @@
+<!doctype>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+</head>
+
+<body style="background-image:url('romance.jpg');">
+
+<script type="text/javascript">
+
+	
+	
+	
+	var FN;
+	var LN;
+	var DOB;
+	var A;
+	var G;
+	var H;
+	var BT;
+	var input = new Array();
+
+	
+function addnew() {
+	
+	document.forms["match"].Submit();
+	input = document.getElementById("match");
+	showall();
+
+}
+function ValidateForm(){
+	var FN = document.forms["Match Me"]["First Name"].value;
+	if (FN == "") {
+		alert("Please Fill Out First Name");
+		return false;
+	}
+	var LN = document.forms["Match Me"]["Last Name"].value;
+	if (LN == "") {
+		alert("Please Fill Out Last Name");
+		return false;
+	}
+	var DOB = document.forms["Match Me"]["Date of Birth"].value;
+	if (DOB == "") {
+		alert("Please Enter Your Date Of Birth");
+		return false;
+	}
+	var A = document.forms["Match Me"]["Age"].value;
+	if (A < 18) {
+		alert("You Must Be 18 Years and Older");
+		return false;
+	}
+		}
+
+		
+
+function showall(){
+	
+	for(i=0;i<input.lenght;i++){
+		FN = document.forms["Match Me"]["First Name"].value[i];
+		LN = document.forms["Match Me"]["Last Name"].value[i];
+		DOB = document.forms["Match Me"]["Date of Birth"].value[i];
+		A = document.forms["Match Me"]["Age"].value[i];
+		G = document.forms["Match Me"]["Gender"].value[i];
+		H = document.forms["Match Me"]["Height"].value[i];
+		BT = document.forms["Match Me"]["Body Type"].value[i];
+		
+		document.getElementById["showallpersons"].innerHTML = input[i];
+}
+
+
+	
+	
+}
+function FindMatches(){
+	
+	var currposn = document.getElementById["showallpersons"];
+	var i = 0;
+	document.getElementById["showmatches"].innerHTML = currposn[i]
+	while(i<10){
+		for(i=0;i<input.lenght;i++){
+			var ranposn = input[i];
+			if(ranposn.getElementById["Height"] < 10 && ranposn.getElementById["Age"] < 10){
+				currposn = document.form["Match Me"]["Height"]["Age"].value;
+				if(ranposn.getElementById["Gender"] = "Female"){
+					currposn = document.form["Match Me"]["Gender"].value = "Male";
+				}else if(ranposn.getElementById["Gender"] = "Male"){
+					currposn = document.form["Match Me"]["Gender"].value = "Female";
+					if(ranposn.getElementById["Body Type"] = "Pear"){
+						currposn = document.form["Match Me"]["Body Type"].value = "Rectangle";
+					}else if(ranposn.getElementById["Body Type"] = "Pencil"){
+						currposn = document.form["Match Me"]["Body Type"].value = "Rhomboid";
+					}
+					if(ranposn.getElementById["Body Type"] = "Apple"){
+						currposn = document.form["Match Me"]["Body Type"].value = "Triangle";
+					}else if(ranposn.getElementById["Body Type"] = "Round"){
+						currposn = document.form["Match Me"]["Body Type"].value = "Oval";
+					}
+					if(ranposn.getElementById["Body Type"] = "Inverted Triangle"){
+						currposn = document.form["Match Me"]["Body Type"] = "Hourglass";
+					}
+					break;
+					
+				}
+				
+				
+			}
+		}
+	}document.getElementById["showmatches"].innerHTML = ranposn;
+}
+
+
+
+</script>
+
+	
+	<h1 style="text-align:center; color:red; border-style:dashed;">FIND YOUR PERFECT MATCH</h1>
+	
+	
+	
+	
+	<form style="text-align:center; background-color:pink;"  name="Match Me" id = "match" onsubmit="return ValidateForm()" method="post">
+	
+			
+			<br>
+			First Name:<input type="text" name='First Name' min="4" max="20" required><br>
+			<br>
+			<br>
+			
+			Last Name:<input type="text" name='Last Name' min="4" max="20" required><br>
+			<br>
+			<br>
+			
+			Date of Birth:<input type="date" name='Date of Birth' required ><br>
+			<br>
+			<br>
+			
+			Age:<input type="number" name='Age' required><br>
+			<br>
+			<br>
+			
+			I am a:
+				<input type="radio" name="Gender" value="Male">Male<br>
+				<input type="radio" name="Gender" value="Female">Female
+			<br>
+			<br>
+			My height is between:
+				<select name='Height' required>
+					<option value="170-175cm">170-175cm</option>
+					<option value="175-180cm">175-180cm</option>
+					<option value="180-185cm">180-185cm</option>
+					<option value="185-190cm">185-190cm</option>
+					<option value="190-195cm">190-195cm</option>
+					<option value="195-200cm">195-200cm</option>
+				</select>
+			<br>
+			<br>
+			
+			My Body Type is:
+				<select name='Body Type' required>
+					<option value="Apple">Apple</option>
+					<option value="Pear">Pear</option>
+					<option value=<"Pencil">Pencil</option>
+					<option value="Hourglass">Hourglass</option>
+					<option value ="Round">Round</option>
+					<option value="Oval">Oval</option>
+					<option value="Triangle">Triangle</option>
+					<option value="Rectangle">Rectangle</option>
+					<option value="Rhomboid">Rhomboid</option>
+					<option value="Inverted Triangle">Inverted Triangle</option>
+				</select>
+			
+			<br>
+			<br>
+			<br>
+			<p>------------------------------------------------------------------------------------------</p>
+
+			<button onclick="addnew()" name="Submit" onsubmit="return showall()">Submit</button>
+			<br>
+			<br>
+			<p>All the names of the persons that sign up for FIND YOUR PERFECT MATCH:</p>
+			
+			<textarea rows="10" col="10"  id='showallpersons'>
+			
+			</textarea>
+			<br>
+			<h2>Possible Matches</h2>
+			<br>
+			<textarea rows="10" col="10" id='showmatches'>
+			
+			</textarea>
+			
+			<br>
+			<button onclick="FindMatches()" name="FindMatch">Find Match</button>
+			
+			
+			
+			
+	</form>
+</body>
+</html>
